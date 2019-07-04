@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="net.andresi.hospicedatamanager.HelloAppEngine" %>
 <html>
 <head>
   <link href='//fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
@@ -56,8 +55,6 @@ xhr.send(data);
 </head>
 <body>
     <h1>Hello App Engine -- Java 8!</h1>
-
-  <p>This is <%= HelloAppEngine.getInfo() %>.</p>
   <table>
     <tr>
       <td colspan="2" style="font-weight:bold;">Available Servlets:</td>
