@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+
+<datastore>
+  <version>
+    <major>0</major>
+    <minor>0</minor>
+    <revision>1</revision>
+  </version>
+  <entity name="facility">
+    <properties>
+      <property name="facility_id">
+        <type>STRING</type>
+        <notnull>TRUE</notnull>
+        <unique>TRUE</unique>
+      </property>
+      <property name="name">
+        <type>STRING</type>
+        <notnull>TRUE</notnull>
+      </property>
+      <property name="address">
+        <type>STRING</type>
+        <notnull>TRUE</notnull>
+      </property>
+      <property name="address2">
+        <type>STRING</type>
+      </property>
+      <property name="city">
+        <type>STRING</type>
+        <notnull>TRUE</notnull>
+      </property>
+      <property name="state">
+        <type>STRING</type>
+        <notnull>TRUE</notnull>
+      </property>
+      <property name="zipcode">
+        <type>STRING</type>
+      </property>
+      <property name="npi">
+        <type>STRING</type>
+        <unique>TRUE</unique>
+      </property>
+      <property name="ccn">
+        <type>STRING</type>
+        <unique>TRUE</unique>
+      </property>
+      <property name="contact_key">
+        <type>KEY</type>
+        <related_entity>user</related_entity>
+      </property>
+    </properties>
+  </entity>
+  <entity name="person">
+    <properties>
+      <property name="first_name">
+        <type>STRING</type>
+        <notnull>TRUE</notnull>
+      </property>
+      <property name="last_name">
+        <type>STRING</type>
+        <notnull>TRUE</notnull>
+      </property>
+      <property name="middle_name">
+        <type>STRING</type>
+      </property>
+    </properties>
+  </entity>
+  <entity name="user">
+    <properties>
+      <property name="person_key">
+        <type>KEY</type>
+        <related_entity>person</related_entity>
+        <notnull>TRUE</notnull>
+      </property>
+      <property name="user_id">
+        <type>STRING</type>
+        <notnull>TRUE</notnull>
+        <unique>TRUE</unique>
+      </property>
+      <property name="phone">
+        <type>STRING</type>
+      </property>
+      <property name="extension">
+        <type>STRING</type>
+      </property>
+      <property name="email">
+        <type>STRING</type>
+      </property>
+      <property name="activation_date">
+        <type>TIMESTAMP</type>
+        <notnull>TRUE</notnull>
+      </property>
+      <property name="termination_date">
+        <type>TIMESTAMP</type>
+      </property>
+      <property name="status">
+        <type>ENTITY_INDEX</type>
+        <related_entity>account_status</related_entity>
+        <display_property>name</display_property>
+        <notnull>TRUE</notnull>
+      </property>
+    </properties>
+  </entity>
+  <entity name="account_status">
+    <properties>
+      <property name="name">
+        <type>STRING</type>
+      </property>
+    </properties>
+    <values>
+      <value>
+        <name>ACTIVE</name>
+      </value>
+      <value>
+        <name>DISABLED</name>
+      </value>
+    </values>
+  </entity>
+</datastore>
